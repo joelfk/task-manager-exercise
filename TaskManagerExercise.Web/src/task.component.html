@@ -1,0 +1,11 @@
+﻿<div>
+    <div>
+        <b>{{task.Title}}</b>
+    </div>
+    <div>
+        {{task.Details}}
+    </div>
+    <div>
+        {{dueDateDetails}} <button *ngIf="loggedInStatus" (click)="edit()">Edit</button><button *ngIf="showComplete" (click)="complete()">Complete</button>
+    </div>
+</div>

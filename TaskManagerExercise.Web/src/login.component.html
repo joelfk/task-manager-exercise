@@ -1,0 +1,18 @@
+﻿<form #loginForm="ngForm">
+    <div>
+        <input [(ngModel)]="username" placeholder="username" required ngControl="usernameControl" #usernameControl="ngForm" />
+        <div [hidden]="usernameControl.valid || usernameControl.pristine" class="alert alert-danger">
+            Userame is required
+        </div>
+    </div>
+    <div>
+        <input [(ngModel)]="password" placeholder="password" required ngControl="passwordControl" #passwordControl="ngForm" />
+        <div [hidden]="passwordControl.valid || passwordControl.pristine" class="alert alert-danger">
+            Password is required
+        </div>
+    </div>
+    <div>
+        <button (click)="login()">Login</button>
+    </div>
+</form>
+<div *ngIf="showError">{{error}}</div>

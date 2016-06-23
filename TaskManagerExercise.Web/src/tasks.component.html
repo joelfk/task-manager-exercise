@@ -1,0 +1,15 @@
+﻿<div *ngIf="!loggedInStatus">
+    <button (click)="login()">Login</button>
+</div>
+<div *ngIf="loggedInStatus">
+    <button (click)="logout()">Logout</button>
+</div>
+<div *ngIf="loggedInStatus">
+    <button (click)="addTask()">New Task</button>
+</div>
+<ul>
+    <li *ngFor="let task of tasks">
+        <task [task]="task"></task>
+    </li>
+</ul>
+<div *ngIf="showError">{{error}}</div>

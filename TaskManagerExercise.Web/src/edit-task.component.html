@@ -1,0 +1,24 @@
+﻿<form #editTaskForm="ngForm">
+    <div>
+        <label for="titleControl">Title</label>
+        <input type="text" [(ngModel)]="title" required maxlength="100" ngControl="titleControl" #titleControl="ngForm" />
+        <div [hidden]="titleControl.valid || titleControl.pristine" class="alert alert-danger">
+            Title is required
+        </div>
+    </div>
+    <div>
+        <label for="detailsControl">Details</label>
+        <input type="text" [(ngModel)]="details" required maxlength="1000" ngControl="detailsControl" #detailsControl="ngForm" />
+        <div [hidden]="detailsControl.valid || detailsControl.pristine" class="alert alert-danger">
+            Title is required
+        </div>
+    </div>
+    <div>
+        <label>Due Date</label>
+        <date [(date)]="dueDate"></date>
+    </div>
+    <div>
+        <button (click)="save()">Save</button>
+    </div>
+</form>
+<div *ngIf="showError">{{error}}</div>
